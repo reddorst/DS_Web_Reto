@@ -11,7 +11,7 @@ st.set_page_config(page_title="Performance Dashboard - Socialize Your Knowledge"
 # Función para cargar datos con caché para mejorar rendimiento
 @st.cache_data
 def load_data():
-    df = pd.read_csv('Reto/employee_data.csv')
+    df = pd.read_csv('Employee_data.csv')
     return df
 
 # Se carga el conjunto de datos desde archivo CSV
@@ -28,7 +28,7 @@ def obtener_fecha_actual():
 # El logo y el título se alinean horizontalmente
 col1, col2 = st.columns([1, 4], vertical_alignment="center")
 with col1:
-    st.image("Reto/Logo_SYK.PNG", width=250)
+    st.image("Logo_SYK.PNG", width=250)
 with col2:
     st.title("People Analytics: Dashboard Estratégico de Desempeño y Compensación")
     st.markdown("""
@@ -146,4 +146,5 @@ Basado en los filtros aplicados, se analizan **{len(df_filtered)} empleados**.
 st.divider()
 if show_data:
     st.markdown("<h3 style='text-align: center;'>Tabla de Datos</h3>", unsafe_allow_html=True)
+
     st.dataframe(df_filtered, use_container_width=True)
